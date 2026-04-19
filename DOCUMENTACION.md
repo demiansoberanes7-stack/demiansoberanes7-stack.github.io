@@ -163,3 +163,36 @@ Contiene las subsecciones del sitio exportadas como archivos HTML independientes
 ¿Qué pasa si el Webhook de n8n está offline? Los datos de formularios no llegarán al CRM o al Email, pero el frontend mostrará una alerta de "Error de conexión" para que el usuario sepa que algo falló.
 
 Gestión de Cache: El dashboard usa un parámetro de tiempo ?t=${Date.now()} en las peticiones API para evitar que el navegador guarde datos viejos, garantizando que siempre se muestre el número en tiempo real.
+
+🛠️ 9. Guía de Configuración de CounterAPI
+CounterAPI es el motor que permite contar los clics de manera gratuita y sin necesidad de base de datos.
+
+¿Qué necesito para usarlo?
+No requiere registro ni API Key. Solo necesitas:
+1. Un Namespace: Un nombre único para tu proyecto (actualmente: axelongosite).
+2. Una Key: Un nombre para cada botón o red social que quieras medir (ej: social_fb).
+
+¿Dónde se encuentra en el código?
+El sistema está dividido en dos partes:
+
+A. El Emisor (index.html)
+Ubicación: Script al final del archivo, dentro de la función fetch().
+```javascript
+fetch(`https://api.counterapi.dev/v1/axelongosite/${trackerKey}/up`)
+```
+Cómo cambiarlo: Sustituye axelongosite por el nombre de tu nuevo proyecto. Asegúrate de que los atributos data-tracker="..." en tus enlaces HTML coincidan con las keys que quieres usar.
+
+B. El Receptor (dashboard.html)
+Ubicación: Dentro de la etiqueta <script> en la constante metrics y la función updateMetrics().
+```javascript
+const metrics = ['social_fb', 'social_wa', ...];
+const url = `https://api.counterapi.dev/v1/axelongosite/${key}/?t=${Date.now()}`;
+```
+Cómo cambiarlo: Debes cambiar el namespace axelongosite para que coincida con el de index.html y actualizar el array metrics con los nombres exactos de tus trackers.
+
+Resumen de Pasos para Personalizar:
+1. Elige un nombre para tu proyecto (Namespace).
+2. Cámbialo en la URL de index.html.
+3. Cámbialo en la URL de dashboard.html.
+4. Define tus claves en los data-tracker de index.html.
+5. Agrega esas mismas claves al array metrics en dashboard.html.
