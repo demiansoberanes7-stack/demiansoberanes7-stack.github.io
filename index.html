@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional - Asesor Inmobiliario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="flex items-center justify-center min-h-screen p-6">
+        <!-- Card extendida y uniforme -->
+        <div class="glass-card text-center rounded-[3rem] shadow-2xl p-12 w-full max-w-md transform transition-all duration-500 hover:scale-[1.01]">
+            
+            <!-- Foto centrada con mayor énfasis -->
+            <div class="flex justify-center mb-8">
+                <div class="relative">
+                    <img class="w-40 h-40 rounded-full shadow-2xl border-4 border-white object-cover" 
+                         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Asesor Inmobiliario">
+                    <div class="absolute bottom-3 right-3 w-6 h-6 bg-emerald-500 border-4 border-white rounded-full shadow-lg"></div>
+                </div>
+            </div>
+            
+            <div class="space-y-2 mb-6">
+                <h1 class="text-3xl font-bold text-gray-900 tracking-tight"> Carlos Mendoza </h1>
+                <h3 class="text-sm font-bold text-indigo-600 uppercase tracking-[0.3em]"> Asesor Inmobiliario Senior </h3>
+            </div>
+            
+            <p class="text-base text-gray-500 leading-relaxed mb-10 font-medium max-w-sm mx-auto"> 
+                Especialista en inversiones de lujo y gestión patrimonial. Te ayudo a encontrar el espacio perfecto para tu próximo capítulo con asesoría experta y personalizada.
+            </p>
+            
+            <!-- Redes Sociales con Diseño Uniforme -->
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#" data-tracker="social_fb" class="w-14 h-14 flex items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all hover:bg-blue-600 hover:text-white hover:-translate-y-1 shadow-sm border border-blue-100/50">
+                    <i class="fa-brands fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" data-tracker="social_wa" class="w-14 h-14 flex items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all hover:bg-emerald-600 hover:text-white hover:-translate-y-1 shadow-sm border border-emerald-100/50">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                </a>
+                <a href="#" data-tracker="social_ig" class="w-14 h-14 flex items-center justify-center rounded-2xl bg-pink-50 text-pink-600 transition-all hover:bg-pink-600 hover:text-white hover:-translate-y-1 shadow-sm border border-pink-100/50">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+                <a href="#" data-tracker="social_tk" class="w-14 h-14 flex items-center justify-center rounded-2xl bg-gray-50 text-gray-900 transition-all hover:bg-gray-900 hover:text-white hover:-translate-y-1 shadow-sm border border-gray-200/50">
+                    <i class="fa-brands fa-tiktok text-xl"></i>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-gray-100 flex justify-between items-center opacity-40">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                    <span class="text-[10px] uppercase font-black tracking-[0.2em] text-gray-500">Perfil Verificado</span>
+                </div>
+                <div class="flex gap-1.5">
+                    <div class="w-1.5 h-1.5 bg-indigo-200 rounded-full"></div>
+                    <div class="w-1.5 h-1.5 bg-indigo-300 rounded-full"></div>
+                    <div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tracking Script -->
+    <script>
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('[data-tracker]');
+            if (target) {
+                const trackerKey = target.getAttribute('data-tracker');
+                fetch(`https://api.counterapi.dev/v1/axelongosite/${trackerKey}/up`)
+                    .then(r => r.json())
+                    .catch(err => console.error('Error:', err));
+            }
+        });
+    </script>
+</body>
+</html>

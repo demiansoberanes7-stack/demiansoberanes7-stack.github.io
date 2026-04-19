@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel privado de analítica AXELONGO. Acceso restringido a métricas de redes sociales.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel de Redes Sociales | AXELONGO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 min-h-screen selection:bg-indigo-500/30">
+
+    <div id="dashboard-content" class="min-h-screen">
+
+        <!-- Nav / Header -->
+        <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="bg-indigo-100 p-2 rounded-xl">
+                        <i class="fa-solid fa-chart-line text-indigo-600 text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">Métricas Social Media</span>
+                </div>
+                <a href="./index.html" class="text-sm font-semibold bg-white hover:bg-slate-50 text-slate-700 py-2 px-4 rounded-full transition-all border border-slate-200 active:scale-95 flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Sitio
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <!-- Resumen de Clics -->
+            <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-xl mb-10">
+                <h3 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-share-nodes text-indigo-500"></i> Rendimiento de Enlaces
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Facebook -->
+                    <div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-hover hover:border-indigo-200">
+                        <span class="font-semibold text-slate-700 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                                <i class="fa-brands fa-facebook-f text-lg"></i>
+                            </div>
+                            Facebook
+                        </span>
+                        <div class="text-right">
+                            <span id="count-social_fb" class="text-2xl font-black text-indigo-600">0</span>
+                            <span class="block text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Clics Totales</span>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-hover hover:border-green-200">
+                        <span class="font-semibold text-slate-700 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            WhatsApp
+                        </span>
+                        <div class="text-right">
+                            <span id="count-social_wa" class="text-2xl font-black text-indigo-600">0</span>
+                            <span class="block text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Clics Totales</span>
+                        </div>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-hover hover:border-pink-200">
+                        <span class="font-semibold text-slate-700 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-pink-600">
+                                <i class="fa-brands fa-instagram text-lg"></i>
+                            </div>
+                            Instagram
+                        </span>
+                        <div class="text-right">
+                            <span id="count-social_ig" class="text-2xl font-black text-indigo-600">0</span>
+                            <span class="block text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Clics Totales</span>
+                        </div>
+                    </div>
+
+                    <!-- TikTok -->
+                    <div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-hover hover:border-slate-400">
+                        <span class="font-semibold text-slate-700 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center text-slate-800">
+                                <i class="fa-brands fa-tiktok text-lg"></i>
+                            </div>
+                            TikTok
+                        </span>
+                        <div class="text-right">
+                            <span id="count-social_tk" class="text-2xl font-black text-indigo-600">0</span>
+                            <span class="block text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Clics Totales</span>
+                        </div>
+                    </div>
+
+                    <!-- YouTube -->
+                    <div class="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-hover hover:border-red-200 md:col-span-2">
+                        <span class="font-semibold text-slate-700 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600">
+                                <i class="fa-brands fa-youtube text-lg"></i>
+                            </div>
+                            YouTube
+                        </span>
+                        <div class="text-right">
+                            <span id="count-social_yt" class="text-2xl font-black text-indigo-600">0</span>
+                            <span class="block text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Clics Totales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="text-center opacity-40 grayscale">
+                <p class="text-[10px] uppercase tracking-widest font-bold">Social Monitoring System v2.0</p>
+                <p class="text-[10px] mt-1">Conectado a CounterAPI v1</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        const metrics = ['social_fb', 'social_wa', 'social_ig', 'social_tk', 'social_yt'];
+
+        async function updateMetrics() {
+            console.log('Actualizando métricas...');
+            for (const key of metrics) {
+                try {
+                    const url = `https://api.counterapi.dev/v1/axelongosite/${key}/?t=${Date.now()}`;
+                    const response = await fetch(url);
+                    const el = document.getElementById(`count-${key}`);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const data = await response.json();
+                    if (el) {
+                        el.innerText = (data.count || 0).toLocaleString();
+                        el.classList.remove('text-red-500');
+                        el.classList.add('text-indigo-600');
+                    }
+                } catch (error) {
+                    console.warn(`Error en ${key}:`, error.message);
+                    const el = document.getElementById(`count-${key}`);
+                    if (el) {
+                        el.innerText = '---';
+                        el.classList.add('text-red-500');
+                    }
+                }
+            }
+        }
+
+        // Cargar métricas al inicio
+        updateMetrics();
+
+        // Intervalo de 30s para datos más frescos
+        setInterval(updateMetrics, 30000);
+    </script>
+</body>
+</html>
